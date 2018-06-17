@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   var ck_editor = document.querySelector('#ckeditor_wave');
-
+  
+  if (ck_editor === null) return false 
   try{
     ClassicEditor
       .create(ck_editor)

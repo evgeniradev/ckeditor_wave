@@ -2,7 +2,7 @@ function initiateCkeditor() {
   var editors = Array.from(arguments);
   document.addEventListener('DOMContentLoaded', () => {
     editors.forEach(function(editor){
-      newEditor(editor)
+      newEditor(editor);
     });
   });
 }
@@ -10,7 +10,7 @@ function initiateCkeditor() {
 function newEditor(ck_editor) {
   var ck_editor = document.querySelector(ck_editor);
 
-  if (ck_editor === null) return false
+  if (ck_editor === null) return false;
   try{
     ClassicEditor
       .create(ck_editor)

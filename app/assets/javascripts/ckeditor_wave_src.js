@@ -7,18 +7,19 @@ function initiateCkeditor() {
   });
 }
 
-function newEditor(editor) {
-  var editor = document.querySelector(editor);
+function newEditor(ck_editor) {
+  var ck_editor = document.querySelector(ck_editor);
 
-  if (editor === null) return false
+  if (ck_editor === null) return false
   try{
     ClassicEditor
-      .create(editor)
+      .create(ck_editor)
       .then(editor => {
         editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
           return new UploadAdapter(loader);
         };
-        document.querySelector('.ck-content').addEventListener(
+
+        ck_editor.nextSibling.querySelector('.ck-content').addEventListener(
           'DOMNodeRemoved', (event) => {
           var element = event.target;
           var classes = element.className.split(' ');

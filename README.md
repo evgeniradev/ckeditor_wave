@@ -7,7 +7,7 @@ This gem integrates [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) with [Car
 Add this line to your application's Gemfile:
 
 ```
-gem 'ckeditor_wave', '~> 1.0'
+gem 'ckeditor_wave', '~> 2.0'
 ```
 
 And then execute:
@@ -36,8 +36,11 @@ mount CkeditorWave::Engine => 'ckeditor_wave'
 ```
 
 
-To attach [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) to an HTML form, please ensure that it has the 'ckeditor_wave' id.
+To attach [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) to HTML forms, call the initiateCkeditor() function inside your application.js by giving it one or more CSS selectors as arguments. For example:
 
+```
+initiateCkeditor('#editor1', '#editor2', '#editor3')
+```
 
 ## Dependencies
 * [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) - classic editor build 10.0.1
@@ -57,7 +60,7 @@ And then execute:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/evgeniradev/ckeditor_wave](https://github.com/evgeniradev/ckeditor_wave).
 
 ## License
 

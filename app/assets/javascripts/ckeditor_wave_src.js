@@ -1,15 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-  var ck_editor = document.querySelector('#ckeditor_wave');
-  
-  if (ck_editor === null) return false 
+function initiateCkeditor() {
+  var editors = Array.from(arguments);
+  document.addEventListener('DOMContentLoaded', () => {
+    editors.forEach(function(editor){
+      newEditor(editor)
+    });
+  });
+}
+
+function newEditor(editor) {
+  var editor = document.querySelector(editor);
+
+  if (editor === null) return false
   try{
     ClassicEditor
-      .create(ck_editor)
+      .create(editor)
       .then(editor => {
         editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
           return new UploadAdapter(loader);
         };
-        document.querySelector('.ck-content').addEventListener('DOMNodeRemoved', (event) => {
+        document.querySelector('.ck-content').addEventListener(
+          'DOMNodeRemoved', (event) => {
           var element = event.target;
           var classes = element.className.split(' ');
           if (classes.includes('image'))
@@ -23,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(error);
     console.log('Is ckeditor.js included?', 'https://ckeditor.com/ckeditor-5/download/');
   }
-});
+}
 
 class UploadAdapter {
   constructor(loader) {

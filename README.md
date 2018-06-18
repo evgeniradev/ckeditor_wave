@@ -36,10 +36,12 @@ mount CkeditorWave::Engine => 'ckeditor_wave'
 ```
 
 
-To attach [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) to HTML forms, call the initiateCkeditor() function inside your application.js by giving it one or more CSS selectors as arguments. For example:
+To attach [CKEditor 5](https://docs.ckeditor.com/ckeditor5/) to HTML forms, call the initiateCkeditor() function inside your application.js by wrapping in in a DOMContentLoaded EventListener and giving it one or more CSS selectors as arguments. For example:
 
 ```
-initiateCkeditor('#editor1', '#editor2', '#editor3')
+document.addEventListener('DOMContentLoaded', () => {
+  initiateCkeditor('#editor1', '#editor2', '#editor3');
+});
 ```
 
 ## Dependencies

@@ -1,10 +1,8 @@
 function initiateCkeditor() {
   var editors = Array.from(arguments);
-  document.addEventListener('DOMContentLoaded', () => {
     editors.forEach(function(editor){
       newEditor(editor);
     });
-  });
 }
 
 function newEditor(ck_editor) {

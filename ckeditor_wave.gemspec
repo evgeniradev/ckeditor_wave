@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
     '{app,config,db,lib}/**/*', 'LICENSE', 'README.md'
   ]
 
-  spec.add_dependency 'rails', '~> 5.0'
-  spec.add_dependency 'carrierwave', '~> 1.2'
+  spec.add_dependency 'rails', '>= 5.0', '< 8'
+  spec.add_dependency 'carrierwave', '>= 1.2', '< 4'
 end
